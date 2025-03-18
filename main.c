@@ -545,6 +545,7 @@ ISR(TIMER2_OVF_vect)
 		bool push = (pinIn(D,0) == 0);
 		if (!push && clockMode == Mode_NORMAL) {
 			clockMode = Mode_DARK;
+			allDark();
 		} else if (!powerUp) { // power is up just now
 			clockMode = Mode_NORMAL;
 		}
