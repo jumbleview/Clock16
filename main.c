@@ -38,6 +38,8 @@ switch(outLevel) \
 (PORT##port |= (1 << (PORT##port##bit))),\
 (PIN##port & (1 << (PORT##port##bit))))
 
+
+
 void activateTimer2()
 {
 	cli();
@@ -73,6 +75,12 @@ void allDark() {
 	pinInNoPullup(D,5);
 	pinInNoPullup(D,4);
 }
+
+inline void setDarkMode(Mode* mode) {
+	*mode = Mode_DARK;
+	allDark();
+}
+
 /*
 void LEDstest() {
 			//  === First
@@ -544,8 +552,7 @@ ISR(TIMER2_OVF_vect)
 		// power up signal control
 		bool push = (pinIn(D,0) == 0);
 		if (!push && clockMode == Mode_NORMAL) {
-			clockMode = Mode_DARK;
-			allDark();
+			setDarkMode(&clockMode);
 		} else if (!powerUp) { // power is up just now
 			clockMode = Mode_NORMAL;
 		}
@@ -557,8 +564,7 @@ ISR(TIMER2_OVF_vect)
 			if ((pinIn(D,2)!=0) && (pinIn(D,3)!=0)) { // just dark button push
 				switch (clockMode) {
 					case Mode_NORMAL:
-						clockMode = Mode_DARK;
-						allDark(); break;
+						setDarkMode(&clockMode); break;
 					case Mode_SETTIME: 
 						secs = 0; // fall through
 					case Mode_DARK:
@@ -604,7 +610,11 @@ ISR(TIMER2_OVF_vect)
 				if (minutes > 59) {
 					minutes = 0;
 					hours++;
-					if (hours > 23) {
+					if (hours == 7) {
+						clockMode = Mode_NORMAL;
+					} else 	if (hours == 23) {
+						setDarkMode(&clockMode);
+					} else if (hours > 23) {
 						hours = 0;
 					}
 				}

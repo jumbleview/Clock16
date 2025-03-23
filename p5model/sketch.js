@@ -2,10 +2,12 @@
 // Variables
 let m = 0;
 
-let button;
-let runMode = false;
+let fRate = 5;
 
-let slider;
+let modeButtons;
+
+let simulSlider;
+let manSlider;
 
 const xClock = 200;
 const y = 200;
@@ -24,18 +26,23 @@ const rmLed = 140;
 const rhLed = 60;
 const rmLed2 = 100;
 
-const xSlider = 110;
-const ySlider =475;
-
-const xDigital = 100;
-const yDigital = 650
-const xButton = 140;
-const yButton = 700;
+const xManSlider = 450;
+const yManSlider =435;
 
 
+const xSimulSlider = 450;
+const ySimulSlider =480;
 
-const xCanvas = 1300;
-const yCanvas = 864;
+const xMode = 350;
+const yMode = 470;
+
+const xDigital = 80;
+const yDigital = 520;
+
+
+
+const xCanvas = 1200;
+const yCanvas = 600;
 
 const deltaMin = [315, 345,15, 45];
 const deltaMinInv = [ 45, 15, 345, 315];
@@ -67,35 +74,38 @@ function drawDial(x0, y0, rs, delta, isHalf) {
   }
 }
 
-function changeRunMode() {
-  runMode = !runMode;
-  button.remove();
-  setButton();
-}
-function setButton(){
-  if (runMode) {
-    button = createButton('stop');
-  } else {
-    button = createButton('start');
-  }
-  button.style('font-size', '50px');
-  let col = color(0,128,255); //use color instead of fill
-  button.style('color',col);
-  button.position(xButton,yButton);
-  button.mousePressed(changeRunMode);
+
+function setRadioButtons() {
+  modeButtons = createRadio();
+  modeButtons.position(xMode,yMode);
+  modeButtons.class('p5-radio')
+  modeButtons.size(90);
+  modeButtons.option('Manual');
+  modeButtons.option('Realtime');
+  modeButtons.option('Simulated');
+  modeButtons.selected('Manual');  
+ 
 }
 
-function setSlider(){
-  slider = createSlider(1,15,5);
-  slider.position(xSlider, ySlider);
-  //slider.style('width','80px');
-  slider.size(200,80)
+function setSimulSlider(){
+  simulSlider = createSlider(1,15,5);
+  simulSlider.position(xSimulSlider, ySimulSlider);
+  simulSlider.size(200,80)
 }
+
+function setManSlider(){
+  manSlider = createSlider(0,719,0);
+  manSlider.position(xManSlider, yManSlider);
+  manSlider.size(720,80)
+}
+
+
 // Function 'setup' and 'draw' required by p5 lib.
 function setup() {
   createCanvas(xCanvas, yCanvas);
-  setButton();
-  setSlider();
+  setSimulSlider();
+  setManSlider();
+  setRadioButtons();
 }
 
 function draw() {
@@ -105,23 +115,42 @@ function draw() {
   const offColor = [147, 150, 149];
   
   const redColor = [255, 0, 0]
-  const blueColor = [0, 25, 255]
-  const cyanColor = [0,255,255]
-  const purpleColor = [204,0,153]
+  const blueColor = [0, 102, 255]
+  const cyanColor = [150,200,255]
+  const purpleColor = [255,153,255]
 
   //background(220);
-  //background(221, 191, 162);
-  background(234, 218, 203);
+  background(204, 204, 255);
+  // background(234, 218, 203);
   drawDial(xClock, y, mRadius + 15, 15, false); 
   drawDial(xDial, y, mRadius + 15, 15, false);  
   drawDial(xHalfDial, y, mRadius + 15, 15, true); 
 
-  if (runMode) {
-    m++;
-    if (m === 720) {
-      m = 0;
-    }
+  switch (modeButtons.value()) {
+    case 'Manual':
+       m = manSlider.value();
+      break;
+    case 'Simulated':
+      m++;
+      if (m === 720) {
+        m = 0;
+      }
+      manSlider.value(m);
+      break;
+    case 'Realtime':
+      let  date = new Date();
+      let realHour = date.getHours();
+      if (realHour >= 12) {
+        realHour -=12;
+      }
+      let realMin = date.getMinutes();
+      m = realHour*60 + realMin;
+      manSlider.value(m);
+      break;
+    default:
+      // impossible
   }
+  
   let minutes = m%60;
   let modMin = minutes%5;
   let hours = m/60;
@@ -147,11 +176,9 @@ function draw() {
   textSize(90);
   let simTime = sh + ":" + sm ;
   text(simTime,xDigital,yDigital);
-  //textSize(28);
-  //text("12", xLed -20, yLed - rmLed -20)
-  //text("3 / 9", xLed + rmLed + 20, yLed + 10)
-  //text("6", xLed -10, yLed + rmLed + 40)
 
+  textSize(15);
+  text("Time Mode:",xMode,yMode -10);
 
   noFill()
   strokeWeight(10);
@@ -290,7 +317,7 @@ function draw() {
     }
 
   }
-
-  let fRate = slider.value()
+ 
+  fRate = simulSlider.value();
   frameRate(fRate);
 }
