@@ -3,11 +3,11 @@ This project presents digital 24 hours clock.  WHile having only only sixteen LE
 
 ## How to Read the Time. Model
 
-![MODEL](./images/clock.jpg) 
+![MODEL](./images/simulation.jpg) 
 
 ## Component and Circute
 
-![CIRCUTE](./images/simulation.jpg) 
+![CIRCUTE](./images/clock.jpg) 
 
 ## Program
 
