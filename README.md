@@ -7,7 +7,7 @@ This project presents digital 24 hours clock.  WHile having only only sixteen LE
 
 ## Component and Circute
 
-![CIRCUTE](./images/clock.jpg) 
+![CIRCUTE](./images/simulation.jpg) 
 
 ## Program
 
