@@ -54,5 +54,8 @@ dkms.conf
 # Microchip studio directory
 .vs/
 
+# Tiny CAD
+*.autosave
+
 # Debug files
 Debug/
