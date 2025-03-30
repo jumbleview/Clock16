@@ -551,8 +551,10 @@ ISR(TIMER2_OVF_vect)
 		
 		// power up signal control
 		bool push = (pinIn(D,0) == 0);
-		if (!push && clockMode == Mode_NORMAL) {
-			setDarkMode(&clockMode);
+		if (!push) {
+			 if (powerUp) { // power is down just now
+				setDarkMode(&clockMode);
+			 }
 		} else if (!powerUp) { // power is up just now
 			clockMode = Mode_NORMAL;
 		}
@@ -610,7 +612,7 @@ ISR(TIMER2_OVF_vect)
 				if (minutes > 59) {
 					minutes = 0;
 					hours++;
-					if (hours == 7) {
+					if (hours == 6) {
 						clockMode = Mode_NORMAL;
 					} else 	if (hours == 23) {
 						setDarkMode(&clockMode);
