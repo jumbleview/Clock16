@@ -6,7 +6,7 @@ This project presents digital 24 hours clock.  While having only only sixteen LE
 ## How to Read the Time. WEB Model
 
 ![MODEL](./images/simulation.jpg) 
-![web-link](https://filedn.com/lRLB6A8XqsC4voY39bLNwCj/Clock16/)
+[web-model](https://filedn.com/lRLB6A8XqsC4voY39bLNwCj/Clock16/)
 
 ## Components and Circute
 Here is list of project components.
