@@ -4,17 +4,17 @@ This project presents digital 24 hours clock.  While having only sixteen LEDs it
 ![CLOCK](./images/IMKP5093_acr.jpg)
 
 ## How to Read the Time. WEB Model
-Here is web model which help to understand this clock principle. Model has four clocks. They all synchronized and show the same time.
+Here is web model which helps to understand project interface. Model has four clocks. They all synchronized and show the same time.
 ![MODEL](./images/simulation.jpg) 
 1. First clock at the left is the regular analogous clock. Nothing to comment here.
-2. Second clock works similarly to the first, apart of the fact that instead of clock hands there are arches. While in regular clock time is shown by  angles between hands and  vertical axis this clock shows time by angles occupied by arches (outer arch for minutes, inner arch for hours ).
-3. Third picture  instead of full dial only has half-dial. For hours less than 6 and minutes less than 30  reading the time is not different of the previous clock. But when hours are in the range 6..12 and minutes in the range 30..60 there is the change. Hours hand of the regular clock is positioned in the left side of dial. But there is no left side of the dial for this arch clock. So direction oof arch grows changes. Now it starts not at the twelve mark but at the six  mark. That way you can show hours from 6 to 11 and minutes from 30 to 60.
-4. Fourth  clock is similar to third but arches instead of solid become dotted. Meaning of each hour dot  (when white) is similar to the meaning of hours mark for a regular clock.   Meaning of each minute dot (when green) is similar to a meaning of five minute mark for a regular clock. One minute precision provided by a color of the last dot of minute arch. Just add color reading to the time provided by green dots (for cyan add +1, for purple add +2, for red add +3, and for blue add +4 ).  
+2. Second clock works similarly to the first, apart of the fact that in place  of clock hands there are arches. Regular clock shows time by  angles between hands and  vertical axis. This clock shows time by angles occupied by arches (outer arch for minutes, inner arch for hours ).
+3. Third picture  iis not full dial but only has half-dial. For hours less than 6 and minutes less than 30  reading the time is not different of the previous clock. But when hours are in the range 6..12 and minutes in the range 30..60 there is the change. Hours hand of the regular clock is positioned in the left side of dial. But there is no left side of the dial for this arch clock. So direction oof arch grows changes. Now it starts not at the twelve mark but at the six  mark. That way it can show hours from 6 to 11 and minutes from 30 to 60.
+4. Fourth  clock is similar to third but arches instead of solid become dotted. Meaning of each hour dot  (when white) is similar to the meaning of hours mark for a regular clock.   Meaning of each minute dot (when green) is similar to a meaning of five minute mark for a regular clock. One minute precision provided by a color of the last dot of minute arch. Just add color reading to the time provided by green dots (for cyan add +1, for purple add +2, for red add +3, and for blue add +4 ).  This last model is very close to the real LED based clock.  
 
 Model allows to play with clocks dynamically. Three modes exist:
-1. Manual mode. TOp slider allows to change clock setting.
+1. Manual mode. Top slider allows to change clock setting.
 2. Real time mode. Clock shows current local time on the machine where browser is running.
-3. Simulated mode. Time change is simulated (Bottom slider allows to increase or decrease simulation speed).
+3. Simulated mode. Time change is simulated (bottom slider allows to increase or decrease simulation speed).
 
 YOu can work with model by clicking this link: [half-dial-web-model](https://filedn.com/lRLB6A8XqsC4voY39bLNwCj/Clock16/)
 If you don't like clicking unknown link you may deploy the model locally. Just clone this git repository, go to the directory p5model, and open index.html file with browser of your choice.
@@ -42,6 +42,6 @@ Here is list of project components.
 
 ## Program
 
-TO program device I used Microchip studio. Programm written in C language and complied in XC8 mode. Program uploaded to microprocessor with the help of AVRISPII interface.
+TO program device I used Microchip studio. Program written in C language and complied by XC8 compiler. Code I  uploaded to microprocessor with the help of AVRISPII interface.
 
 
