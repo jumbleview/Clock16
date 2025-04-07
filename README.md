@@ -19,8 +19,7 @@ Model allows to play with clocks dynamically. Three modes exist:
 You can work with model by clicking this link: [half-dial-web-model](https://filedn.com/lRLB6A8XqsC4voY39bLNwCj/Clock16/)
 If you don't like clicking unknown link you may deploy the model locally. Just clone this git repository, go to the directory p5model, and open index.html file with browser of your choice.
 
-Real LED clock is different of model  by having two more LEDs. Central LEDs changes color each 15 seconds. When clock is in set mode this LED is dark.  One more LED on the left part ofd the clock is PM LED. It is off when tome is between 12 AM till 10 PM. Other wise it is on. 
-
+Real LED clock is different of model  by having two more LEDs. Central LEDs changes color each 15 seconds. When clock is in set mode this LED is dark.  One more LED on the left part of the clock is PM LED. It is off when time is the range 12 AM ... 12 PM. Otherwise it is on. 
 
 ## Components and Circute
 Here is list of project components.
