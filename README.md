@@ -30,8 +30,8 @@ Here is list of project components.
 4. Seven 10mm white LEDs
 5. 5mm white LED
 6. Sixteen 75 Ohm/0.125 W  resistors
-9. Eleven silicon diods 1N4148
-10. Shotkey diod 1N5817
+9. Eleven silicon diodes 1N4148
+10. Schottky diode 1N5817
 11. Three  micro buttons
 12. Super Capacitor 0.5 MF 5.5 V
 13. Power down supply LM2596
@@ -42,9 +42,11 @@ Here is list of project components.
 ![CIRCUTE](./images/clock.jpg) 
 
  Each multi-color LED consists of three color LEDs, so overall there are 32 LEDs. Single pin in this circute controls  two LEDs.  
+ There is power down supply used. It is needed to avoid weak LED lighting when chip pin  takes IN-NO-PULLUP resistor mode (needed when there is need top set LED off). 
+ Super-capacitor and schottky diode allows to keep clock running in case of occasional power loss. Opto-pair delivers to circute  signal of power loss and program\ may switch all LEDs off  to prolong clock work while power is down.
 
 ## Program
 
-TO program device I used Microchip studio. Program written in C language and complied by XC8 compiler. Code I  uploaded to microprocessor with the help of AVRISPII interface.
+To program device I used Microchip studio. Program written in C language and complied by XC8 compiler. AVRISPII interface device allows to upload code to microprocessor memory.
 
 
