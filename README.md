@@ -1,7 +1,7 @@
 # Clock16
 This project presents digital 24 hours clock.  While having only sixteen LEDs it shows time with 15 seconds precision.
 
-![CLOCK](./images/IMKP5093_acr.jpg)
+![CLOCK](./images/IMKP5100_acr.jpg)
 
 ## How to Read the Time. WEB Model
 Here is web model which helps to understand project interface. Model has four clocks. They all synchronized and show the same time.
