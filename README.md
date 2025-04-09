@@ -4,20 +4,20 @@ This project presents digital 24 hours clock.  While having only sixteen LEDs it
 ![CLOCK](./images/IMKP5100_acr.jpg)
 
 ## How to Read the Time. WEB Model
-Here is web model which helps to understand project interface. You can work with model by clicking this link: [half-dial-web-model](https://filedn.com/lRLB6A8XqsC4voY39bLNwCj/Clock16/) If you don't like clicking unknown link you may deploy the model locally. Just clone this git repository, go to the directory p5model, and open index.html file with browser of your choice.
+Here is web model which helps to understand project interface. You can work with model by clicking this link: [half-dial-web-model](https://filedn.com/lRLB6A8XqsC4voY39bLNwCj/Clock16/) If you don't like clicking unknown link you may deploy the model locally. Just clone this repository, go to the directory p5model, and open index.html file with browser of your choice.
 Model has four clocks. They all synchronized and show the same time.
 ![MODEL](./images/simulation.jpg) 
 1. First clock at the left is the regular analogous clock. Nothing to comment here.
-2. Second clock works similarly to the first, apart of the fact that in place  of clock hands there are circular arcs. Regular clock shows time by  angles between hands and  vertical axis. This clock shows time by angles occupied by arcs (outer arc for minutes, inner arc for hours ). Arcs start at twelve mark and grows clockwise. 
-3. Third picture  is not full dial but only half-dial. For hours less than six and minutes less than thirty  reading the time is not different of the previous clock. Arcs start at twelve mark and grows clockwise. But when hours are in the range 6..12 or minutes are in the range 30..60 there is the change. Hands of the regular clock under these conditions  are positioned at the left side of dial. But for this arc clock there is no left side. So direction  how arcs grow and starting point  changes. For these conditions arcs start not at the twelve mark but at the six  mark and they grow counter-clockwise. That way clock show hours from 6 till 12 and minutes from 30 till 60.
-4. Fourth  clock is similar to the third but arcs instead of solid become dotted. This clock does not need dial marks: LED itself are marks. Green LEDs of minutes arc show time with five minutes precision. Additional  one minute precision achieved by a color of the last dot of minute arc. Just add color reading to the time provided by green dots (for cyan add +1, for purple add +2, for red add +3, and for blue add +4 ).  This last model is very close to the real LED based clock  (just substitute dot with LED). 
+2. Second clock works similarly to the first, apart of the fact that in place  of clock hands there are circular arcs. Normally clock shows time by  angles between vertical axis and hands . This arc clock shows time by angles occupied by arcs (outer arc for minutes, inner arc for hours ). Arcs start at twelve mark and grows clockwise. 
+3. Third clock has ark as well but instead of clock dial there is only half-dial. For hours less than six and minutes less than thirty  reading the time is not different of the previous clock. Arcs start at twelve mark and grows clockwise. But when hours are in the range 6..12 or minutes are in the range 30..60 there is the change. Hands of the regular clock under these conditions  are positioned at the left side of dial. But for this arc clock there is no left side. Arcs occupies the same right side but starting point   and direction  how arcs grow changes. Under these conditions arcs start not at the twelve mark but at the six  mark and they grow counter-clockwise. That way clock show hours from 6 till 12 and minutes from 30 till 60.
+4. Fourth  clock is similar to the third but arcs are dotted not solid. This clock does not need dial marks: dots itself are marks. White dots of inner galf-dial shows hours, green dots of outer  arc show time with five minutes precision. Additional  one minute precision achieved by a color of the last dot of minute arc. Just add color reading to the time provided by green dots (for cyan add +1, for purple add +2, for red add +3, and for blue add +4 ).  This last clock model is very close to the real LED based clock  (just substitute dot with LED). 
 
 Model allows to play with clocks dynamically. Three modes exist:
 1. Manual mode. Top slider allows to change clock setting.
 2. Real time mode. Clock shows current local time on the machine where browser is running.
 3. Simulated mode. Time change is simulated (bottom slider allows to increase or decrease simulation speed).
 
-Real LED clock is different of model  by having two more LEDs. 
+Real LED clock is different of dot half-dial model  by having two more LEDs. 
 1. Central LEDs changes color each 15 seconds. When clock is in set mode this LED is dark.  
 2. LED on the left part of the clock. It is PM LED. This LED is off when time is in the range 12 AM ... 12 PM. Otherwise it is on. 
 
