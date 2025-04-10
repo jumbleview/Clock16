@@ -1,6 +1,6 @@
 # Clock16
 This project presents digital 24 hours clock.  While having only sixteen LEDs it shows time with 15 seconds precision. 
-Some additional info regarding this project motivation you can find in [blog post](https://https://www.jumbleview.info/2025/04/northern-hemisphere-southern-hemisphere.html)
+Some additional info regarding this project motivation you can find in [blog post](https://www.jumbleview.info/2025/04/northern-hemisphere-southern-hemisphere.html)
 
 ![CLOCK](./images/IMKP5100_acr.jpg)
 
