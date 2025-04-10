@@ -1,5 +1,6 @@
 # Clock16
-This project presents digital 24 hours clock.  While having only sixteen LEDs it shows time with 15 seconds precision.
+This project presents digital 24 hours clock.  While having only sixteen LEDs it shows time with 15 seconds precision. 
+Some additional info regarding this project motivation you can find in [blog post](https://https://www.jumbleview.info/2025/04/northern-hemisphere-southern-hemisphere.html)
 
 ![CLOCK](./images/IMKP5100_acr.jpg)
 
@@ -21,7 +22,7 @@ Real LED clock is different of dot half-dial model  by having two more LEDs.
 1. Central LEDs changes color each 15 seconds. When clock is in set mode this LED is dark.  
 2. LED on the left part of the clock. It is PM LED. This LED is off when time is in the range 12 AM ... 12 PM. Otherwise it is on. 
 
-## Components and Circute
+## Components and Circuit
 Here is list of project components.
 
 1. Atmega328p Microchip processor
@@ -39,10 +40,10 @@ Here is list of project components.
 15. Opto-pair NTE3042
 16. Resistor 220 Ohm/ 0.125 W
 
-![CIRCUTE](./images/clock.jpg) 
+![CIRCUIT](./images/clock.jpg) 
 
  Each multi-color LED consists of three color LEDs, so overall there are 32 LEDs. Single pin in this circute controls  two LEDs.  
- Circute has power down supply, converting 5V power to ~4 v. It is needed to avoid weak LED lighting when chip pin  takes in-no-pull-up mode (program set it  when  LED should be off). 
+ Circuit has power down supply, which  converts 5V power to ~4 v. It is needed to avoid weak LED lighting when chip pin  takes in-no-pull-up mode (program set it  when  LED should be off). 
  Super-capacitor and schottky diode allows to keep clock running in case of occasional power loss. Opto-pair delivers signal of the power loss to the microchip and program may switch all LEDs off  to prolong clock work while power is down.
 
 ## Program
