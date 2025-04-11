@@ -83,7 +83,7 @@ function setRadioButtons() {
   modeButtons.option('Manual');
   modeButtons.option('Realtime');
   modeButtons.option('Simulated');
-  modeButtons.selected('Manual');  
+  modeButtons.selected('Realtime');  
  
 }
 
